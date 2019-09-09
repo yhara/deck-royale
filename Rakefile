@@ -20,3 +20,20 @@ task :spec do
 end
 
 task default: :spec
+
+namespace :cr do
+  require "./lib/cr"
+
+  desc "Reload card data"
+  task :sync do
+    require "./app/main"
+    CR.sync_cards
+    CR.sync_images
+    puts "sync done."
+  end
+
+  task :sync_cards do
+    require "./app/main"
+    CR.sync_cards
+  end
+end

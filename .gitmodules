@@ -1,0 +1,3 @@
+[submodule "cr-api-data"]
+	path = cr-api-data
+	url = https://github.com/cr-api/cr-api-data

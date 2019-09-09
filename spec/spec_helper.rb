@@ -6,8 +6,12 @@ require_relative '../app/main.rb'
 
 # Setup database_rewinder
 require 'database_rewinder'
+require "./lib/cr"
 RSpec.configure do |config|
-  config.before(:suite){ DatabaseRewinder.clean_all }
+  config.before(:suite){
+    DatabaseRewinder.clean_all
+    CR.load_cards_json
+  }
   config.after(:each){ DatabaseRewinder.clean }
 end
 

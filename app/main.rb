@@ -6,7 +6,8 @@ require "sinatra/activerecord"
 
 $LOAD_PATH.unshift(__dir__)
 require 'flash.rb'
-require 'models/book.rb'
+require 'models/card.rb'
+require 'models/deck.rb'
 require 'controllers/books_controller.rb'
 
 class MyApp < Sinatra::Base
