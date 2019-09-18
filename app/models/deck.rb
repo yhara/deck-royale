@@ -18,7 +18,7 @@ class Deck < ActiveRecord::Base
     deck
   end
 
-  def app_url
+  def deck_url
     "clashroyale://copyDeck?deck=" + cards.pluck(:card_id).join(';')
   end
 end

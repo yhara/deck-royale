@@ -8,7 +8,7 @@ $LOAD_PATH.unshift(__dir__)
 require 'flash.rb'
 require 'models/card.rb'
 require 'models/deck.rb'
-require 'controllers/books_controller.rb'
+require 'controllers/decks_controller.rb'
 
 class MyApp < Sinatra::Base
   register Sinatra::ActiveRecordExtension
@@ -23,7 +23,7 @@ class MyApp < Sinatra::Base
   end
   
   get '/' do
-    "<a href='/books'>books</a>"
+    slim :index
   end
 
   get '/screen.css' do

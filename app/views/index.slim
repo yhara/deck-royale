@@ -1,0 +1,18 @@
+h1 Deck Royale <small>- Clash Royale Decks -</small>
+
+form method="POST" action="/decks"
+  ' Deck URL:
+  input type="text" name="deck_url"
+  ' Title:
+  input type="text" name="title"
+  input type="submit" value="Import"
+
+- Deck.order(id: :desc).each do |deck|
+  .deck
+    h2.deck-title = deck.title
+    .copy
+      a href=(deck.deck_url) = "Copy"
+    .deck-cards 
+      - deck.cards.each do |card|
+        img src="/images/cards-75/#{card.key}.png"
+
