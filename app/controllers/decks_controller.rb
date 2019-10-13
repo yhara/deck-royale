@@ -34,6 +34,7 @@ class MyApp < Sinatra::Base
   put '/decks/:id' do
     @deck = Deck.find_by!(id: params[:id])
     @deck.title = params[:title]
+    @deck.note = params[:note]
     if @deck.save
       @flash[:notice] = "Updated record: #{@deck.title}"
       redirect "/decks/#{@deck.id}"
