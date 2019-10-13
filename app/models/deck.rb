@@ -9,7 +9,10 @@ class Deck < ActiveRecord::Base
     deck = Deck.new(title: title)
     Deck.transaction do
       $1.split(";").each do |card_id_str|
-        card = Card.find_by!(card_id: card_id_str.to_i)
+        card = Card.find_by(card_id: card_id_str.to_i)
+        unless card
+          raise ActiveRecord::RecordNotFound, "unknown card_id: #{card_id_str.inspect}"
+        end
         deck.cards << card
       end
       raise InvalidDeckUrl unless deck.cards.length == 8
