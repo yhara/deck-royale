@@ -1,7 +1,7 @@
 class MyApp < Sinatra::Base
   get '/decks' do
     session["ct"] ||= 0; session["ct"] += 1
-    @decks = Deck.order(updated_at: :desc)
+    @decks = Deck.order(updated_at: :desc).include(:card)
     slim :'decks/index'
   end
 
