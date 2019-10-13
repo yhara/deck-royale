@@ -1,0 +1,18 @@
+- if @deck.errors.any?
+  .errors
+    = @deck.errors.full_messages.join(' / ')
+
+form action=(@deck.persisted? ? "/decks/#{@deck.id}" : "/decks") method="POST"
+  - if @deck.persisted?
+    input type="hidden" name="_method" value="PUT"
+
+  .field
+    label for="deck_title" Title
+    input id="deck_title" name="title" type="text" value=(@deck.title)
+
+  .field
+    label for="deck_note" Note
+    textarea id="deck_note" name="note" = @deck.note
+
+  .actions
+    input type="submit" name="commit" value="Save"

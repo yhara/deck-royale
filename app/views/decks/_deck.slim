@@ -1,0 +1,11 @@
+.deck
+  h2.deck-title
+    a href="/decks/#{deck.id}" = deck.title
+  .copy
+    a href=(deck.deck_url) = "Copy"
+  .deck-cards 
+    - deck.sorted_cards.each do |card|
+      img src="/images/cards-75/#{card.key}.png"
+  .deck-note
+    = deck.note
+

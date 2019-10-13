@@ -8,11 +8,4 @@ form method="POST" action="/decks"
   input type="submit" value="Import"
 
 - Deck.order(id: :desc).each do |deck|
-  .deck
-    h2.deck-title = deck.title
-    .copy
-      a href=(deck.deck_url) = "Copy"
-    .deck-cards 
-      - deck.cards.each do |card|
-        img src="/images/cards-75/#{card.key}.png"
-
+  == slim :"decks/_deck", locals: {deck: deck}

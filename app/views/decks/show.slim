@@ -1,0 +1,18 @@
+h1 Deck
+
+== slim :"decks/_deck", locals: {deck: @deck}
+
+div
+  a href="/decks/#{@deck.id}/edit" Edit
+  '  |
+  form action="/decks/#{@deck.id}" method="POST" id="delete_deck" style="display: inline"
+    input type="hidden" name="_method" value="DELETE"
+    a href="#" onclick="confirmAndDelete('#delete_deck')" Delete
+  '  |
+  a href="/" Back
+
+javascript:
+  function confirmAndDelete(formSelector) {
+    if (!confirm('Are you sure?')) return;
+    $(formSelector).submit();
+  }
