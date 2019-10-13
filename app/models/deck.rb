@@ -21,4 +21,8 @@ class Deck < ActiveRecord::Base
   def deck_url
     "clashroyale://copyDeck?deck=" + cards.pluck(:card_id).join(';')
   end
+
+  def sorted_cards
+    cards.order(elixir: :desc, card_id: :asc)
+  end
 end
