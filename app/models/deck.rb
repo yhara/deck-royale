@@ -3,7 +3,7 @@ class Deck < ActiveRecord::Base
   validates :title, presence: true
 
   class InvalidDeckUrl < StandardError; end
-  DECK_URL_REXP = %r(clashroyale://copyDeck\?deck=(.*))
+  DECK_URL_REXP = %r(\?deck=(.*))
   def self.create_from_url(url, title)
     raise InvalidDeckUrl unless DECK_URL_REXP =~ url
     deck = Deck.new(title: title)
