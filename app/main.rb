@@ -20,6 +20,7 @@ class MyApp < Sinatra::Base
   configure do
     set :method_override, true
     set :views, "#{__dir__}/views"
+    set :public_dir, "#{__dir__}/../public"
   end
   
   get '/' do
