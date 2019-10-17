@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rake'
+gem 'puma'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
@@ -19,5 +20,4 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'simplecov'
-  gem 'puma'
 end

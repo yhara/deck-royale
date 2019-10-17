@@ -21,6 +21,16 @@ end
 
 task default: :spec
 
+namespace :docker do
+  task :build do
+    sh "docker build -t deck-royale ."
+  end
+
+  task :run do
+    sh "docker run --rm -p3000:3000 -vdb:/app/db deck-royale"
+  end
+end
+
 namespace :cr do
   require "./lib/cr"
 
