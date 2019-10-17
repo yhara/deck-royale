@@ -2,7 +2,3 @@
 /coverage
 /db/*.sqlite3
 /tmp
-
-# Exclude schema.rb because this repo is just a template.
-# You should commit schema.rb for real apps.
-/db/schema.rb
